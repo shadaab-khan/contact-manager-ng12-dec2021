@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" data-bs-toggle="tab" data-bs-target="#basic-databinding" role="tab"
+          aria-controls="basic-databinding" aria-selected="true">Basic Data Binding</a>
+        <a class="nav-item nav-link" data-bs-toggle="tab" data-bs-target="#directives-tab" role="tab"
+          aria-controls="directives-tab" aria-selected="false">Directives</a>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+  
+      <div class="tab-pane fade show active" id="basic-databinding" role="tabpanel"
+        aria-labelledby="basic-databinding-tab">
+        <h2>Basic Data Binding</h2>
+        
+        <h3>1. Interpolation</h3>
+
+        <p>App name is: {{appName}}</p>
+        <p>Dev Team Size: {{teamSize}}</p>
+        
+        <hr>
+
+        <h3>2. Property Binding</h3>
+
+        <p>Company Name: {{companyName}}</p>
+        <input type="text" [value]="companyName"><br>
+        <a [href]="websiteURL">Go to my company's website</a>
+
+        <hr>
+
+        <h3>3. Event Binding</h3>
+        
+        <button type="button" onclick="handleClickMe()">Click Me -- won't work -- check console</button>
+        <br/>
+        <button type="button" (click)="handleClickMe($event)">Click Me</button>
+
+        <hr>
+
+        <h3>4. Two Way Binding</h3>
+        
+        <p>{{courseName}}</p> <!-- string interpolation -->
+        <input type="text" [value]="courseName"> <!-- property binding -->
+        <br><br>
+        <input type="text" [(ngModel)]="courseName"> <!-- two way binding -->
+
+      </div>
+  
+      <div class="tab-pane fade" id="directives-tab" role="tabpanel" aria-labelledby="directives-tab">
+        <h2>Directives</h2>
+
+        <h3>*ngIf</h3>
+
+        <div class="alert alert-success" *ngIf="isLoggedIn; else elseBlock">As loggedin user, you can access premium features</div>
+
+        <ng-template class="alert alert-danger" #elseBlock>Please log in</ng-template>
+        
+        <hr>
+
+        <ul>
+            <li *ngFor="let skill of skillList">{{skill}}</li>
+            <!-- Learn about finding index in the above forloop-->
+        </ul>
+    
+    </div>
+  
+    </div>
+  </div>
